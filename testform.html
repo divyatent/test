@@ -1,0 +1,32 @@
+<html>
+ <body>
+<form action="google.com" id="form" method="post">
+First name:<br>
+<input type="text" name="firstname" value=" "/>
+<br>
+Last name:<br>
+<input type="text" name="lastname" value=" "/>
+<br><br>
+
+<button>Try it</button>
+</form>
+<p id="demo"></p>
+ </body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+$("button").click(function(){
+ var x = document.getElementById("form").action;
+var y = document.getElementById("form").firstname.value;
+var z = document.getElementById("form").lastname.value;
+   $.ajax({
+            url: 'test.php', //This is the current doc
+            type: "POST",
+            data: ({firstname: y, lastname: z, action: x})
+            
+        });      
+	alert(x+","+y+","+z);
+});
+});
+</script>
+</html>
